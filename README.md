@@ -1,2 +1,2 @@
-# Day1
-Basic React/Redux Frontend Node/Express Backend
+# Day2
+Weather Widget
