@@ -1,3 +1,143 @@
-body {
-  font-family: arial, sans-serif;
+
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  background-color: #dcdfe9;
+  margin: 0;
+  padding: 0;
+}
+
+#searchbar{
+  background-color:#37383f;
+  color: #dcdfe9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+#logo{
+  font-size: 5vh;
+  padding: 2vh
+}
+
+input[type="text"] {
+  font-family: 'Lato', sans-serif;
+  font-size: 5vh;
+  color: #dcdfe9;
+  background-color:#37383f;
+  text-align: left;
+  margin: 1vh;
+  padding-left: 2vh;
+  border: none;
+  z-index: 1
+}
+
+::-webkit-input-placeholder {
+  font-size: 3vh;
+}
+::-moz-placeholder {
+  font-size: 3vh;
+}
+:-ms-input-placeholder {
+  font-size: 3vh;
+}
+::placeholder {
+  font-size: 3vh;
+}
+
+#details{
+  text-align: center;
+  vertical-align: middle;
+  /* margin: 5vh; */
+  color: #37383f;
+
+}
+
+#group{
+  display: inline-block;
+  text-align: center;
+  color: #37383f;
+  border: 1vh solid transparent;
+  border-radius: 50%;
+  /* height: 300px;
+  width: 300px; */
+  word-wrap: break-word;
+  background: transparent;
+  background-image: linear-gradient(#dcdfe9, #dcdfe9), linear-gradient(to right,#9be694,#6292eb);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: auto;
+  width: 25vw;
+  height:25vw;
+  /* padding-bottom: 50%; */
+
+}
+
+#city{
+  text-align: center;
+  vertical-align: middle;
+  margin: 5vh;
+  color: #37383f;
+}
+
+#conditions{
+  margin-top: 25%;
+  overflow: hidden;
+}
+
+#condition{
+  font-size: 3vh;
+  padding: 10px;
+}
+#Main{
+  font-size: 5vh
+}
+
+#city{
+  font-size: 8vh
+}
+
+img {
+  height: 40px;
+  width: 40px;
+}
+
+
+
+
+@media screen and (max-width: 1690px) {
+  #group{
+    width: 25vw;
+  height:25vw;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #group{
+    width: 50vw;
+  height:50vw;
+  }
+}
+@media screen and (max-width: 980px) {
+  #group{
+    width: 50vw;
+  height:50vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #group{
+    width: 80vw;
+  height:80vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #group{
+    width: 80vw;
+  height:80vw;
+  }
+  #searchbar{
+    flex-direction: column;
+  }
 }
