@@ -15,7 +15,7 @@ const Conditions = props => {
 
   let showCondition = cap(props.state.condition);
   let id = props.state.conditionID;
-  console.log(id);
+
   let images = {
     2: 'https://www.freeiconspng.com/uploads/thunderstorm-icon-0.png',
     3: 'https://www.freeiconspng.com/uploads/weather-icon-png-17.png',

@@ -15,6 +15,7 @@ class Main extends Component {
       condition: '',
       conditionID: '',
       city: '',
+      error: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,20 +30,27 @@ class Main extends Component {
   async handleSubmit(event) {
     if (event.key === 'Enter') {
       const res = await axios.get(`/api/${this.state.zipcode}`);
-      console.log(res.data);
-      let conditionID =
-        res.data.weather[0].id === 800 ? 900 : res.data.weather[0].id;
 
-      this.setState({
-        zipcode: '',
-        temperature: res.data.main.temp,
-        temperatureMin: res.data.main.temp_min,
-        temperatureMax: res.data.main.temp_max,
-        condition: res.data.weather[0].description,
-        conditionID: conditionID,
-        pressure: res.data.main.pressure,
-        city: res.data.name,
-      });
+      let error = res.data.cod;
+
+      if (error == 404) {
+        this.setState({ error: 'City not found' });
+      } else {
+        let conditionID =
+          res.data.weather[0].id === 800 ? 900 : res.data.weather[0].id;
+
+        this.setState({
+          zipcode: '',
+          temperature: res.data.main.temp,
+          temperatureMin: res.data.main.temp_min,
+          temperatureMax: res.data.main.temp_max,
+          condition: res.data.weather[0].description,
+          conditionID: conditionID,
+          pressure: res.data.main.pressure,
+          city: res.data.name,
+          error: '',
+        });
+      }
     }
   }
 
@@ -54,13 +62,13 @@ class Main extends Component {
           <input
             name="zipcode"
             type="text"
-            placeholder="...Search by US zipcode"
+            placeholder="&#xf002; ...Search US zipcodes"
             value={this.state.zipcode}
             onChange={this.handleChange}
             onKeyPress={this.handleSubmit}
           />
         </div>
-
+        <div id="error">{this.state.error}</div>
         {this.state.city.length ? (
           <React.Fragment>
             <div id="city">{this.state.city}</div>
