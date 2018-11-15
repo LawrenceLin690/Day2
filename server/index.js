@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Listening on PORT 3000');
 });
 module.exports = app;
